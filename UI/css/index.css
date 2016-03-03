@@ -1,0 +1,32 @@
+h1 {
+    color: limegreen;
+}
+
+.controllerButtonsHolder {
+    width: 400px;
+    height: 400px;
+}
+
+.upController img {
+    width: 200px;
+    height: 100px;
+    margin-left: 100px;
+}
+
+.rightController img {
+    width: 100px;
+    height: 200px;
+    float: right;
+}
+
+.leftController img {
+    width: 100px;
+    height: 200px;
+    float: left;
+}
+
+.downController img {
+    width: 200px;
+    height: 100px;
+    margin-top: 200px;
+}
