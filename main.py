@@ -1,4 +1,6 @@
 import sys
+sys.path.insert(0, './lib')
+
 import wheels
 from time import sleep
 from flask import Flask
