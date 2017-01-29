@@ -1,17 +1,23 @@
 import sys
+import wheels
+from time import sleep
 from flask import Flask
 
 app = Flask(__name__)
+wheels.init()
 
 @app.route("/", methods=['GET'])
 def hello():
-    return "Hello World!"
+    return "All systems up!"
+    wheels.move_forward()
+    sleep(1)
+    wheels.stop()
 
 @app.route('/', methods=['POST'])
-def add_message():
+def execute_order():
     content = request.get_json()
     print content
-    return content.type;
+    return content.type
 
 if __name__ == "__main__":
     app.run()
