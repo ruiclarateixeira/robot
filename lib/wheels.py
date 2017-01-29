@@ -7,6 +7,8 @@ motor_left_backward_pin = 16
 def init():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(motor_left_on_pin, GPIO.OUT)
+    GPIO.output(motor_left_on_pin, GPIO.LOW)
+
     GPIO.setup(motor_left_forward_pin, GPIO.OUT)
     GPIO.setup(motor_left_backward_pin, GPIO.OUT)
 
