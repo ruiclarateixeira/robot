@@ -7,14 +7,11 @@ from flask import Flask
 
 app = Flask(__name__)
 wheels.init()
-wheels.diagnostics()
 
 @app.route("/", methods=['GET'])
 def hello():
-    wheels.move_forward()
-    sleep(1)
-    wheels.stop()
-    return "All systems up!"
+    return wheels.diagnostic()
+
 
 @app.route('/', methods=['POST'])
 def execute_order():

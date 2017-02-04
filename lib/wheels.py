@@ -13,6 +13,7 @@ def init():
     GPIO.setup(motor_left_backward_pin, GPIO.OUT)
     GPIO.setup(motor_right_forward_pin, GPIO.OUT)
     GPIO.setup(motor_right_backward_pin, GPIO.OUT)
+    diagnostic()
 
 def move_forward():
     print "Moving forward"
@@ -25,8 +26,8 @@ def stop():
     GPIO.output(motor_left_forward_pin, GPIO.LOW)
     GPIO.output(motor_right_forward_pin, GPIO.LOW)
 
-def diagnostics():
-    init()
+def diagnostic():
     move_forward()
-    sleep(1)
+    sleep(0.1)
     stop()
+    Return "All systems up!"
