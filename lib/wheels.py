@@ -23,12 +23,23 @@ def move_forward():
     GPIO.output(motor_right_forward_pin, GPIO.HIGH)
     GPIO.output(motor_right_backward_pin, GPIO.LOW)
 
+def move_backward():
+    print "Moving backward"
+    GPIO.output(motor_left_forward_pin, GPIO.LOW)
+    GPIO.output(motor_left_backward_pin, GPIO.HIGH)
+    GPIO.output(motor_right_forward_pin, GPIO.LOW)
+    GPIO.output(motor_right_backward_pin, GPIO.HIGH)
+
 def stop():
     GPIO.output(motor_left_forward_pin, GPIO.LOW)
     GPIO.output(motor_right_forward_pin, GPIO.LOW)
+    GPIO.output(motor_left_backward_pin, GPIO.LOW)
+    GPIO.output(motor_right_backward_pin, GPIO.LOW)
 
 def diagnostic():
     move_forward()
+    sleep(0.1)
+    move_backward()
     sleep(0.1)
     stop()
     return "All systems up!"
