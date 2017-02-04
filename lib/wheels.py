@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+from time import sleep
 
 motor_left_forward_pin = 18
 motor_left_backward_pin = 16
