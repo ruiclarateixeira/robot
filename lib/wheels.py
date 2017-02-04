@@ -4,8 +4,8 @@ from time import sleep
 motor_left_forward_pin = 18
 motor_left_backward_pin = 16
 
-motor_right_forward_pin = 15
-motor_right_backward_pin = 13
+motor_right_forward_pin = 13
+motor_right_backward_pin = 15
 
 def init():
     GPIO.cleanup()
