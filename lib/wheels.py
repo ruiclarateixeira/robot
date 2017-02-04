@@ -31,4 +31,4 @@ def diagnostic():
     move_forward()
     sleep(0.1)
     stop()
-    Return "All systems up!"
+    return "All systems up!"
