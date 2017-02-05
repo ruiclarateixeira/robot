@@ -8,23 +8,25 @@
 </head>
 <body>
     <h1>Rui's Mini Car Controller</h1>
+    <script src="./scripts/index.js"></script>
 
     <div class="controllerButtonsHolder">
-        <div class="upController">
+        <div class="upController" onclick="moveForward()">
             <img src="images/up.png">
         </div>
 
-        <div class="rightController">
+        <div class="rightController" onclick="turnRight()">
             <img src="images/right.png">
         </div>
 
-        <div class="leftController">
+        <div class="leftController" onclick="turnLeft()">
             <img src="images/left.png">
         </div>
 
-        <div class="downController">
+        <div class="downController" onclick="moveBackward()">
             <img src="images/down.png">
         </div>
     </div>
+
 </body>
 </html>
