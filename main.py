@@ -29,7 +29,3 @@ if __name__ == "__main__":
 
     tcp_thread = Thread(target=start_tcp_listener)
     tcp_thread.start()
-
-    sleep(1)
-    while(True):
-        var = raw_input("Ctrl+C to Stop")
