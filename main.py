@@ -3,36 +3,14 @@ sys.path.insert(0, './lib')
 
 import signal
 import SocketServer
+import os
 from time import sleep
-from flask import Flask
 from sys import platform
 from tcphandler import MyTCPHandler
 from threading import Thread
+import wheels
 
-if platform != "darwin":
-    import wheels
-    wheels.init()
-
-app = Flask(__name__)
-
-@app.route("/testflask")
-def test_flask():
-    return "Flask is working!"
-
-@app.route("/", methods=['GET'])
-def hello():
-    return wheels.diagnostic()
-
-@app.route('/', methods=['POST'])
-def execute_order():
-    content = request.get_json()
-    print content
-    return content.type
-
-def start_flask():
-    FLASK_URL, FLASK_PORT = "0.0.0.0", 5000
-    print "Starting flask server on {}:{}".format(FLASK_URL, FLASK_PORT)
-    app.run(host=FLASK_URL, port=FLASK_PORT)
+wheels.init()
 
 def start_tcp_listener():
     TCP_HOST, TCP_PORT = "localhost", 5001
@@ -47,9 +25,7 @@ def sigint_handler(signum, frame):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, sigint_handler)
     print "Running on {}".format(platform)
-
-    flask_thread = Thread(target=start_flask)
-    flask_thread.start()
+    print "Process id {}".format(os.getpid())
 
     tcp_thread = Thread(target=start_tcp_listener)
     tcp_thread.start()
