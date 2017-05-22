@@ -16,9 +16,9 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
     def handle_command(self, data):
         func = {
             'w': step_forward,
-            's': wheels.move_backward(),
-            'r': wheels.stop,
-            'l': wheels.stop,
+            's': step_backwards,
+            'a': wheels.stop,
+            'd': wheels.stop,
             'p': wheels.stop
         }.get(data, None)
 
