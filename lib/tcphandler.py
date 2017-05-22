@@ -1,16 +1,25 @@
+from time import sleep
 import SocketServer
 import wheels
 
-def temp_move():
-    print "Executing!"
+def step_forward():
+    wheels.move_forward()
+    sleep(0.5)
+    wheels.stop()
+
+def step_backwards():
+    wheels.move_backward()
+    sleep(0.5)
+    wheels.stop()
 
 class MyTCPHandler(SocketServer.BaseRequestHandler):
     def handle_command(self, data):
         func = {
-            'w': wheels.move_forward(),
+            'w': step_forward,
             's': wheels.move_backward(),
-            'r': temp_move,
-            'l': temp_move,
+            'r': wheels.stop,
+            'l': wheels.stop,
+            'p': wheels.stop
         }.get(data, None)
 
         if func is not None:
