@@ -1,4 +1,5 @@
 import SocketServer
+import wheels
 
 def temp_move():
     print "Executing!"
@@ -6,8 +7,8 @@ def temp_move():
 class MyTCPHandler(SocketServer.BaseRequestHandler):
     def handle_command(self, data):
         func = {
-            'f': temp_move,
-            'b': temp_move,
+            'w': wheels.move_forward(),
+            's': wheels.move_backward(),
             'r': temp_move,
             'l': temp_move,
         }.get(data, None)
