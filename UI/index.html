@@ -3,30 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Rui Mini Car</title>
-
     <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
     <h1>Rui's Mini Car Controller</h1>
-    <script src="./scripts/index.js"></script>
-
+    <input type="text" id="ip-add" placeholder="Car Hostname" value="192.168.1."/>
+    <button onclick="connect()">Connect</button>
     <div class="controllerButtonsHolder">
-        <div class="upController" onclick="moveForward()">
+        <div class="controller" id="up">
             <img src="images/up.png">
         </div>
-
-        <div class="rightController" onclick="turnRight()">
+        <div class="controller" id="right">
             <img src="images/right.png">
         </div>
-
-        <div class="leftController" onclick="turnLeft()">
+        <div class="controller" id="left">
             <img src="images/left.png">
         </div>
-
-        <div class="downController" onclick="moveBackward()">
+        <div class="controller" id="down">
             <img src="images/down.png">
         </div>
     </div>
-
+    <script src="./scripts/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>

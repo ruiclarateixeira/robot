@@ -1,17 +1,28 @@
+var connection = null;
+
 function connect() {
-  var connection = new WebSocket('ws://localhost:5001');
+  var ip = $('#ip-add').val();
+  connection = new WebSocket("ws://" + ip + ":5001");
 
   connection.onopen = function () {
-    connection.send('Ping'); // Send the message 'Ping' to the server
+    connection.send('Ping');
+  };
+
+  connection.onerror = function (error) {
+    console.log('WebSocket Error ' + error);
+  };
+
+  connection.onmessage = function (e) {
+    console.log('Server: ' + e.data);
   };
 }
 
 function moveForward() {
-  console.log("Moving forward");
+  connection.send("w");
 }
 
 function moveBackward() {
-  console.log("Moving backward");
+  connection.send("s");
 }
 
 function turnRight() {
@@ -21,3 +32,14 @@ function turnRight() {
 function turnLeft() {
   console.log("Turning left");
 }
+
+function stop() {
+  connection.send("p");
+}
+
+function init() {
+  $("#up").mousedown(moveForward).mouseup(stop);
+  $("#down").mousedown(moveBackward).mouseup(stop);
+}
+
+$(init);

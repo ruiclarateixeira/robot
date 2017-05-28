@@ -7,25 +7,25 @@ h1 {
     height: 400px;
 }
 
-.upController img {
+#up img {
     width: 200px;
     height: 100px;
     margin-left: 100px;
 }
 
-.rightController img {
+#right img {
     width: 100px;
     height: 200px;
     float: right;
 }
 
-.leftController img {
+#left img {
     width: 100px;
     height: 200px;
     float: left;
 }
 
-.downController img {
+#down img {
     width: 200px;
     height: 100px;
     margin-top: 200px;
