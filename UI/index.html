@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Rui Mini Car</title>
     <link href="css/index.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
 </head>
 <body>
     <h1>Rui's Mini Car Controller</h1>
-    <input type="text" id="ip-add" placeholder="Car Hostname" value="192.168.1."/>
-    <button onclick="connect()">Connect</button>
+    <div id="connection">
+      <input type="text" id="ip-add" placeholder="Car Hostname" value="192.168.1."/>
+      <button onclick="connect()">Connect</button>
+      <div id="connection-status"></div>
+    </div>
     <div class="controllerButtonsHolder">
         <div class="controller" id="up">
             <img src="images/up.png">
