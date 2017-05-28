@@ -1,22 +1,14 @@
 from time import sleep
 import SocketServer
 import wheels
+from SimpleWebSocketServer import WebSocket
 
-def step_forward():
-    wheels.move_forward()
-    sleep(0.5)
-    wheels.stop()
 
-def step_backwards():
-    wheels.move_backward()
-    sleep(0.5)
-    wheels.stop()
-
-class MyTCPHandler(SocketServer.BaseRequestHandler):
+class MyWebSocket(WebSocket):
     def handle_command(self, data):
         func = {
-            'w': step_forward,
-            's': step_backwards,
+            'w': wheels.move_forward,
+            's': wheels.move_backward,
             'a': wheels.stop,
             'd': wheels.stop,
             'p': wheels.stop
@@ -25,6 +17,11 @@ class MyTCPHandler(SocketServer.BaseRequestHandler):
         if func is not None:
             func()
 
-    def handle(self):
-        while(True):
-            self.handle_command(self.request.recv(1).strip())
+    def handleMessage(self):
+        self.handle_command(self.data)
+
+    def handleConnected(self):
+        print(self.address, 'connected')
+
+    def handleClose(self):
+        print(self.address, 'closed')
