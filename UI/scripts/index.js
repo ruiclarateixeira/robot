@@ -26,11 +26,11 @@ function moveBackward() {
 }
 
 function turnRight() {
-  console.log("Turning right");
+  connection.send("d");
 }
 
 function turnLeft() {
-  console.log("Turning left");
+  connection.send("a");
 }
 
 function stop() {
@@ -40,6 +40,8 @@ function stop() {
 function init() {
   $("#up").mousedown(moveForward).mouseup(stop);
   $("#down").mousedown(moveBackward).mouseup(stop);
+  $("#left").mousedown(turnLeft).mouseup(stop);
+  $("#right").mousedown(turn_right).mouseup(stop);
 }
 
 $(init);

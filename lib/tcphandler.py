@@ -9,8 +9,8 @@ class MyWebSocket(WebSocket):
         func = {
             'w': wheels.move_forward,
             's': wheels.move_backward,
-            'a': wheels.stop,
-            'd': wheels.stop,
+            'a': wheels.turn_left,
+            'd': wheels.turn_right,
             'p': wheels.stop
         }.get(data, None)
 
