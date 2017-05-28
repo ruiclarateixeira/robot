@@ -16,3 +16,8 @@ A Python application that allows control of the car via a WebSocket
 
 ### The face
 A web app using vanilla javascript with a hint o jquery. Allows very basic moves.
+
+## Progress so far
+![Top View Picture](https://cloud.githubusercontent.com/assets/2995788/26531332/de2970ea-43de-11e7-8ecb-239c8345d136.JPG)
+
+![Side View Picture](https://cloud.githubusercontent.com/assets/2995788/26531333/df815ae8-43de-11e7-83f7-85d30c264a38.JPG)
