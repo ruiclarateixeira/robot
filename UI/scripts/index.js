@@ -22,27 +22,22 @@ function connect() {
 }
 
 function moveForward(event) {
-  event.preventDefault();
   connection.send("w");
 }
 
 function moveBackward(event) {
-  event.preventDefault();
   connection.send("s");
 }
 
 function turnRight(event) {
-  event.preventDefault();
   connection.send("d");
 }
 
 function turnLeft(event) {
-  event.preventDefault();
   connection.send("a");
 }
 
 function stop(event) {
-  event.preventDefault();
   connection.send("p");
 }
 
