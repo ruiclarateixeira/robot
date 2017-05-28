@@ -21,23 +21,28 @@ function connect() {
   };
 }
 
-function moveForward() {
+function moveForward(event) {
+  event.preventDefault();
   connection.send("w");
 }
 
-function moveBackward() {
+function moveBackward(event) {
+  event.preventDefault();
   connection.send("s");
 }
 
-function turnRight() {
+function turnRight(event) {
+  event.preventDefault();
   connection.send("d");
 }
 
-function turnLeft() {
+function turnLeft(event) {
+  event.preventDefault();
   connection.send("a");
 }
 
-function stop() {
+function stop(event) {
+  event.preventDefault();
   connection.send("p");
 }
 
