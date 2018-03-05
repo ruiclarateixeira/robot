@@ -4,13 +4,11 @@ sys.path.insert(0, './lib')
 import signal
 import SocketServer
 import os
+import wheels
 from sys import platform, argv
 from tcphandler import MyWebSocket
 from SimpleWebSocketServer import SimpleWebSocketServer
-
-if platform == "linux" or platform == "linux2":
-    import wheels
-    wheels.init()
+wheels.init()
 
 
 def start_web_socket():
